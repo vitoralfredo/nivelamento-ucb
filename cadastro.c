@@ -1,7 +1,7 @@
 //Sínsese
 //Objetivo: "Um código para cadastros"
-//Entrada: "Dados das pessoas"
-//Saída: ""
+//Entrada: "Dados para o cadastro"
+//Saída: "Pessoas que ganham acima de mil reais, a pessoa mais velha, apenas os homens"
 
 #include<stdio.h>
 #include<locale.h>
@@ -21,7 +21,7 @@ typedef struct cadastroX{
 }cadastroX;
 
 void preencherCadastro (cadastroX *cadastro, int i) {
-	for(i=0;i<2;i++){
+	for(i=0;i<5;i++){
 		printf("***CADASTRO***\n");
 		printf("    DADOS:\n");
 		printf("Nome: ");
@@ -63,7 +63,7 @@ void preencherCadastro (cadastroX *cadastro, int i) {
 }
 
 void mostrarForulario (cadastroX *cadastro, int i){
-	for(i=0;i<2;i++){
+	for(i=0;i<5;i++){
 		printf("\n***CADASTRO FINALIZADO***\n\n");
 		printf("Nome: %s", cadastro[i].nome);
 		printf("CPF: %s\n", cadastro[i].cpf);
@@ -83,7 +83,7 @@ void mostrarForulario (cadastroX *cadastro, int i){
 }
 
 void pessoaMaisVelhaX (cadastroX *cadastro, int i, int pMV, int mIdade){
-	for(i=0;i<2;i++){
+	for(i=0;i<5;i++){
 		if (cadastro[i].idade>mIdade){
 			mIdade = cadastro[i].idade;
 			pMV = i;
@@ -93,7 +93,7 @@ void pessoaMaisVelhaX (cadastroX *cadastro, int i, int pMV, int mIdade){
 }
 
 void salarioMil (cadastroX *cadastro, int i, int *sMil){	
-	for(i=0;i<2;i++){
+	for(i=0;i<5;i++){
 		if(cadastro[i].salario>=1000){
 			sMil[i] = i;
 			printf("Ganha mais de R$ 1000,00: %s", cadastro[sMil[i]].nome);
@@ -102,7 +102,7 @@ void salarioMil (cadastroX *cadastro, int i, int *sMil){
 }
 
 void sexoMasculino (cadastroX *cadastro, int i, int *sMas){
-	for(i=0;i<2;i++){
+	for(i=0;i<5;i++){
 		if(strcmp(cadastro[i].sexo, "Masculino") == 0){
 			sMas[i] = i;
 			printf("É do sexo masculino: %s", cadastro[sMas[i]].nome);
@@ -111,8 +111,8 @@ void sexoMasculino (cadastroX *cadastro, int i, int *sMas){
 }
 
 int main(){
-	int i, pMV=0, sMil[2]={0}, mIdade=0, sMas[2]={0};
-	cadastroX cadastro[2];
+	int i, pMV=0, sMil[5]={0}, mIdade=0, sMas[5]={0};
+	cadastroX cadastro[5];
 	
 	setlocale(LC_ALL, "");
 	
